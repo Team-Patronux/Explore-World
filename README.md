@@ -1,59 +1,91 @@
-# EarthMoonMars
+# Earth → Moon/Mars
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.1.
+An Angular single-page experience about using extreme environments on Earth as analogs for future human missions to the Moon and Mars.
 
-## Development server
+The page presents:
 
-To start a local development server, run:
+- A mission overview explaining why Earth analogs are useful.
+- Earth, Moon, and Mars visual references.
+- Filterable analog locations for Moon and Mars research.
+- An OpenStreetMap world map embed.
+- A details modal for each analog location.
+- Goals for safer missions and Earth-based innovation.
 
-```bash
-ng serve
-```
+## Tech stack
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Angular 22
+- TypeScript 6
+- RxJS 7
+- Vitest through Angular CLI
+- Native HTML and CSS
 
-## Code scaffolding
+## Requirements
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js compatible with Angular 22
+- npm 11 (the repository declares `npm@11.16.0`)
 
-```bash
-ng generate component component-name
-```
+## Getting started
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Install dependencies:
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Start the development server:
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
+Open `http://localhost:4200/` in a browser. The development server reloads the page when source files change.
 
-For end-to-end (e2e) testing, run:
+## Available scripts
+
+| Command | Description |
+| --- | --- |
+| `npm start` | Start the Angular development server. |
+| `npm run build` | Create an optimized production build in `dist/`. |
+| `npm run watch` | Build in development mode and rebuild on changes. |
+| `npm test` | Run the unit tests with Vitest. |
+
+Angular CLI commands can also be run through `npm run ng -- <command>`.
+
+## Project structure
+
+```text
+src/
+├── app/
+│   ├── app.component.*       # Main page layout, content, and state
+│   ├── app.config.ts         # Application providers
+│   ├── app.routes.ts         # Route configuration
+│   └── components/           # Navbar, hero, mission, locations, and footer
+├── index.html                # HTML entry point
+├── main.ts                  # Angular bootstrap
+└── styles.css               # Global styles
+public/                       # Static assets copied to the build
+```
+
+The current page content and analog-location data are defined in `src/app/app.component.ts` and rendered by `src/app/app.component.html`. Images are loaded from Unsplash and the map is embedded from OpenStreetMap, so those external resources require network access when the page is viewed.
+
+## Testing
+
+Unit-test files are colocated with the application and component source files using the `*.spec.ts` naming convention. Run the test suite with:
 
 ```bash
-ng e2e
+npm test
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Building for production
 
-## Additional Resources
+```bash
+npm run build
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The production output is written to `dist/`. The Angular production configuration includes bundle and component-style size budgets.
+
+## Further reading
+
+- [Angular CLI documentation](https://angular.dev/tools/cli)
+- [OpenStreetMap](https://www.openstreetmap.org/)
+- [Vitest documentation](https://vitest.dev/)

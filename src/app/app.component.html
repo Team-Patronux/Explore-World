@@ -1,0 +1,212 @@
+
+<div class="page">
+  <!-- Navigation -->
+  <header class="navbar">
+    <a class="brand" href="#">
+      <span class="globe">◎</span>
+      <span>EARTH → MOON/MARS</span>
+    </a>
+
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#mission">OUR MISSION</a>
+      <a href="#locations">ANALOG LOCATIONS</a>
+      <a href="#research">RESEARCH</a>
+      <a href="#team">TEAM</a>
+    </nav>
+
+    <a href="#locations" class="outline-btn">
+      Explore location →
+    </a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-copy">
+      <span class="eyebrow">ANALOGS TODAY. HABITATS TOMORROW.</span>
+      <h1>From Earth’s Extremes to
+        <span>Moon &amp; Mars</span>
+      </h1>
+      <p>
+        We study Earth’s unique environments to find analog locations
+        that can support future human habitats on the Moon and Mars.
+      </p>
+      <a class="primary-btn" href="#locations">
+        EXPLORE ANALOG LOCATION →
+      </a>
+    </div>
+
+    <div class="planet-scene">
+      <div class="planet-item">
+        <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=400"
+             alt="Planet Earth">
+        <strong>Earth</strong>
+        <small>Our only home</small>
+      </div>
+      <div class="planet-line"></div>
+      <div class="planet-item">
+        <img src="https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?w=400"
+             alt="Moon">
+        <strong>Moon</strong>
+        <small>Test for tomorrow</small>
+      </div>
+      <div class="planet-line"></div>
+      <div class="planet-item">
+        <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=400"
+             alt="Mars">
+        <strong>Mars</strong>
+        <small>Build the future</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="mission" id="mission">
+    <div class="mission-intro">
+      <span class="eyebrow">THE MISSION</span>
+      <h2>Why Earth Analog?</h2>
+      <p>
+        Earth's diverse environments—from frozen regions to volcanic
+        regions—help us understand the challenges living on the Moon
+        and Mars. By studying these analog locations, we can test
+        technologies, validate systems and reduce risks for future missions.
+      </p>
+      <a href="#research" class="text-link">Learn more about our research →</a>
+    </div>
+
+    <article class="mission-card">
+      <span class="mission-icon cyan">♧</span>
+      <h3>Test Conditions</h3>
+      <p>Simulate extreme climate, terrain and isolation.</p>
+    </article>
+
+    <article class="mission-card">
+      <span class="mission-icon green">♧</span>
+      <h3>Validate Technology</h3>
+      <p>Check life support, habitat and resource systems.</p>
+    </article>
+
+    <article class="mission-card">
+      <span class="mission-icon orange">⬡</span>
+      <h3>Reduce Mission Risk</h3>
+      <p>Build confidence before we go beyond Earth.</p>
+    </article>
+
+    <article class="mission-card">
+      <span class="mission-icon purple">♟</span>
+      <h3>Enable Sustainable Living</h3>
+      <p>Learn, adapt and create long-term solutions.</p>
+    </article>
+  </section>
+
+  <!-- Locations -->
+  <section class="locations" id="locations">
+    <div class="location-list">
+      <span class="eyebrow">EXPLORE</span>
+      <h2>Earth Analog Locations</h2>
+
+      <div class="filters">
+        <button
+          *ngFor="let filter of filters"
+          [class.active]="selectedFilter === filter"
+          (click)="selectedFilter = filter">
+          {{ filter }}
+        </button>
+      </div>
+
+      <article class="location-card"
+        *ngFor="let place of filteredPlaces">
+        <img [src]="place.image" [alt]="place.name">
+        <div class="location-info">
+          <h3>{{ place.name }}</h3>
+          <p>{{ place.tags }}</p>
+        </div>
+        <button class="arrow-btn"
+          (click)="showDetails(place)">→</button>
+      </article>
+    </div>
+
+    <!-- Map panel -->
+    <div class="map-panel">
+      <div class="map-legend">
+        <span><i class="dot moon"></i> Moon Analogs</span>
+        <span><i class="dot mars"></i> Mars Analogs</span>
+      </div>
+
+<iframe
+  title="Interactive world map of Earth analog locations"
+  src="https://www.openstreetmap.org/export/embed.html?bbox=-130%2C-60%2C150%2C80&layer=mapnik"
+  loading="lazy"
+  allowfullscreen>
+</iframe>
+
+    </div>
+
+    <!-- Featured location -->
+    <aside class="featured-location">
+      <img
+        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700"
+        alt="Desert landscape">
+      <div class="featured-content">
+        <h3>{{ selectedPlace.name }}</h3>
+        <div class="tags">
+          <span class="mars-tag">Mars Analog</span>
+          <span class="terrain-tag">Dry &amp; Rocky</span>
+        </div>
+        <p>
+          Explore extreme environments on Earth that help researchers
+          study conditions relevant to future space missions.
+        </p>
+        <button class="outline-btn"
+          (click)="showDetails(selectedPlace)">
+          View Details →
+        </button>
+      </div>
+    </aside>
+  </section>
+
+  <!-- Goals strip -->
+  <section class="goals" id="research">
+    <div>
+      <span>OUR GOALS</span>
+      <h3>A Step Towards a Sustainable Future</h3>
+    </div>
+    <div>
+      <span class="goal-icon">◉</span>
+      <section>
+        <h3>Safer &amp; Smarter Missions</h3>
+        <p>Lower risk, better planning, higher success rate.</p>
+      </section>
+    </div>
+    <div>
+      <span class="goal-icon">⚙</span>
+      <section>
+        <h3>Innovation on Earth</h3>
+        <p>Technologies developed for space also benefit life on Earth.</p>
+      </section>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="team">
+    <div class="brand">◎ EARTH → MOON/MARS</div>
+    <div class="socials">
+      <a href="#team" aria-label="Research links">◇</a>
+      <a href="#team" aria-label="LinkedIn">in</a>
+      <a href="mailto:research@example.com" aria-label="Email">✉</a>
+    </div>
+  </footer>
+
+  <!-- Location details -->
+  <div class="modal-backdrop" *ngIf="detailsOpen"
+       (click)="detailsOpen = false">
+    <div class="details-modal" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="detailsOpen = false">✕</button>
+      <img [src]="selectedPlace.image" [alt]="selectedPlace.name">
+      <span class="eyebrow">ANALOG LOCATION</span>
+      <h2>{{ selectedPlace.name }}</h2>
+      <p>{{ selectedPlace.description }}</p>
+      <p><strong>Environment:</strong> {{ selectedPlace.tags }}</p>
+    </div>
+  </div>
+</div>
